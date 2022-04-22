@@ -1,0 +1,4 @@
+rootProject.name = 'jmix-ImageCropper-all'
+
+includeBuild '../ImageCropper'
+includeBuild '../demo'
