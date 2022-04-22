@@ -1,0 +1,15 @@
+.cr-preview {
+    position: absolute;
+    /*border: 1px solid #a3a3a3;*/
+    background: #f2f2f2;
+    top: 0;
+    right: 0;
+    /*overflow: hidden;*/
+}
+.cr-preview-label {
+    margin: 10px auto;
+    position: absolute;
+}
+.cr-preview-img {
+    position: absolute;
+}

@@ -11,6 +11,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.context.event.EventListener;
 
 import java.util.Collections;
 
@@ -20,6 +22,13 @@ import java.util.Collections;
 @JmixModule(dependsOn = {EclipselinkConfiguration.class, UiConfiguration.class})
 @PropertySource(name = "cn.jmix.imagecropper", value = "classpath:/cn/jmix/imagecropper/module.properties")
 public class ImgcropConfiguration {
+    private static ApplicationContext applicationContext;
+
+    public static ApplicationContext getApplicationContext() {
+        return applicationContext;
+    }
+
+
 
     @Bean("imgcrop_ImgcropUiControllers")
     public UiControllersConfiguration screens(ApplicationContext applicationContext,
@@ -28,5 +37,9 @@ public class ImgcropConfiguration {
                 = new UiControllersConfiguration(applicationContext, metadataReaderFactory);
         uiControllers.setBasePackages(Collections.singletonList("cn.jmix.imagecropper"));
         return uiControllers;
+    }
+    @EventListener
+    public void storeApplicationContext(ContextRefreshedEvent event) {
+        applicationContext=event.getApplicationContext();
     }
 }

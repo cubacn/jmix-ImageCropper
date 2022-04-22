@@ -19,8 +19,8 @@ subprojects {
         mavenCentral()
         mavenLocal()
         maven {
-        url 'https://global.repo.jmix.io/repository/public'
-    }
+            url 'https://global.repo.jmix.io/repository/public'
+        }
     }
 
     jmix {

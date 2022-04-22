@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://caption"
+        >
+    <layout>
+        <vbox spacing="true">
+            <image width="200px" height="200px" id="image" scaleMode="CONTAIN">
+            </image>
+            <hbox>
+                <fileUpload id="uploadField" uploadButtonIcon="UPLOAD" uploadButtonCaption="msg://upload"
+                            fileSizeLimit="10000000"/>
+                <button id="cropBtn" caption="msg://crop" icon="CROP"/>
+            </hbox>
+        </vbox>
+    </layout>
+</window>
