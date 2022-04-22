@@ -7,6 +7,15 @@ buildscript {
     }
 }
 
+ext.aliRepo = [
+        snapshot: 'https://repo-snapshot.sikada.cn/',
+        release: 'https://repo.sikada.cn/',
+        username:
+                project.hasProperty("skd.repo.username") ? project['skd.repo.username'] : '',
+        password:
+                project.hasProperty("skd.repo.password") ? project['skd.repo.password'] : ''
+]
+
 group = 'cn.jmix'
 version = '0.0.1-SNAPSHOT'
 
@@ -47,10 +56,10 @@ subprojects {
     publishing {
         repositories {
             maven {
-                url = 'https://myrepo/releases/'
+                url = version.indexOf("snapshot")>-1? aliRepo.snapshot:aliRepo.release
                 credentials {
-                    username rootProject.hasProperty('uploadUser') ? rootProject['uploadUser'] : 'admin'
-                    password rootProject.hasProperty('uploadPassword') ? rootProject['uploadPassword'] : 'admin'
+                    username aliRepo.username
+                    password aliRepo.password
                 }
                 allowInsecureProtocol = true
             }
