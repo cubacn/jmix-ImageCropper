@@ -11,7 +11,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Publish package
-        run: gradle -Pversion=${{ github.event.release.tag_name }}  build publish
+        run: ./ImageCropper/gradlew -Pversion=${{ github.event.release.tag_name }} -Pghargs='skd.repo.username=${{secrets.skd_repo_username}},skd.repo.password=${{secrets.skd_repo_password}},skd.mrepo.username=${{secrets.skd_mrepo_username}},skd.mrepo.password=${{secrets.skd_mrepo_password}}'   build publish
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_USERNAME: ${{ github.repository_owner }}
