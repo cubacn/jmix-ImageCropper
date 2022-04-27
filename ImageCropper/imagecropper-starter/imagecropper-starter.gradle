@@ -1,4 +1,4 @@
-archivesBaseName = 'imagecropper-starter'
+archivesBaseName = 'jmixcn-imagecropper-starter'
 
 jmix {
     entitiesEnhancing {

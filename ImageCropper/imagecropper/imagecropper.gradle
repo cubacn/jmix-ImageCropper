@@ -1,4 +1,4 @@
-archivesBaseName = 'imagecropper'
+archivesBaseName = 'jmixcn-imagecropper'
 
 dependencies {
     implementation 'io.jmix.core:jmix-core-starter'
