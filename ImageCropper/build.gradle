@@ -7,6 +7,15 @@ buildscript {
     }
 }
 
+if (project.hasProperty('ghargs')) {
+    project.ghargs.split(',').each {
+        def (key, value) = it.split('=')
+        def k = ((String) key).trim().replace("'", "")
+        def v = ((String) value).trim().replace("'", "");
+        ext[k] = v;
+    }
+}
+
 ext.aliRepo = [
         snapshot: 'https://repo-snapshot.sikada.cn/',
         release: 'https://repo.sikada.cn/',
