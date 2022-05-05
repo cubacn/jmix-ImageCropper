@@ -42,6 +42,7 @@ dependencies {
     }
     implementation("cn.jmix:jmixcn-imagecropper-starter:0.0.1-SNAPSHOT")
     implementation("org.hsqldb:hsqldb")
+    implementation("cn.jmix:jmixcn-imagecropper-starter:unspecified")
 }
 
 test {
