@@ -7,7 +7,7 @@ jmix {
 }
 
 dependencies {
-    api project(':imagecropper')
+    api project(':jmixcn-imagecropper')
 
     implementation 'io.jmix.core:jmix-core'
     implementation 'io.jmix.data:jmix-data'

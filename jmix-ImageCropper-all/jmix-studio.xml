@@ -15,6 +15,19 @@
           </option>
         </ModuleSettings>
       </entry>
+      <entry key="ImageCropper-addon.jmixcn-imagecropper.main">
+        <ModuleSettings>
+          <option name="dataStoreOptions">
+            <map>
+              <entry key="main">
+                <value>
+                  <DataStoreSettings />
+                </value>
+              </entry>
+            </map>
+          </option>
+        </ModuleSettings>
+      </entry>
       <entry key="com.company.demo.main">
         <ModuleSettings>
           <option name="dataStoreOptions">
@@ -27,6 +40,19 @@
                       <option value="hsql" />
                     </option>
                   </DataStoreSettings>
+                </value>
+              </entry>
+            </map>
+          </option>
+        </ModuleSettings>
+      </entry>
+      <entry key="demo.main">
+        <ModuleSettings>
+          <option name="dataStoreOptions">
+            <map>
+              <entry key="main">
+                <value>
+                  <DataStoreSettings />
                 </value>
               </entry>
             </map>

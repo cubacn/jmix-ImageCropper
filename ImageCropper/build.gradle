@@ -26,7 +26,7 @@ ext.aliRepo = [
 ]
 
 group = 'cn.jmix'
-if (!this.version){
+if (!this.version||'unspecified'==this.version){
     this.version='0.0.1-SNAPSHOT'
 }
 
@@ -37,7 +37,6 @@ subprojects {
 
     repositories {
         mavenCentral()
-        mavenLocal()
         maven {
             url 'https://global.repo.jmix.io/repository/public'
         }
