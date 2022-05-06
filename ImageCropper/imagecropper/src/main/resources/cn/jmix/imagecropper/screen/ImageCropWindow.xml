@@ -4,10 +4,11 @@
     <dialogMode width="800px" height="450px" forceDialog="true"/>
     <layout expand="rootCtn">
         <vbox id="rootCtn" spacing="true" expand="images">
-            <hbox id="images" width="100%" margin="true" spacing="true">
-                <vbox id="cropCmpCtn" spacing="true" width="100%" height="100%"/>
+            <hbox id="images" width="100%" margin="false" spacing="true">
+                <vbox id="cropCmpCtn" spacing="true" width="100%" height="100%" stylename="cr-cropper-container" margin="false"
+                      css=""/>
             </hbox>
-            <groupBox spacing="false" outerMargin="false" caption="msg://settingsText" width="100%" align="TOP_CENTER">
+            <groupBox spacing="false" outerMargin="false" caption="msg://settingsText" width="100%" align="TOP_CENTER" >
                 <form width="100%">
                     <column>
                         <buttonsPanel>
@@ -27,7 +28,7 @@
                 </form>
             </groupBox>
         </vbox>
-        <buttonsPanel id="toolbar" align="MIDDLE_RIGHT">
+        <buttonsPanel id="toolbar" align="MIDDLE_RIGHT" margin="true,false,true,false" >
             <button caption="msg://okText" id="okBtn" align="MIDDLE_CENTER" stylename="primary"/>
             <button caption="msg://cancelText" id="cancelBtn" align="MIDDLE_CENTER"/>
         </buttonsPanel>

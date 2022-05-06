@@ -1,6 +1,12 @@
 function cn_jmix_imagecropper_toolkit_ui_ImgCropServerComponent() {
     var connector = this;
     var element = connector.getElement();
+    element.style.height="100%";
+    element.style.width="100%";
+    element.style.display='inline-flex';
+    element.style["flex-direction"]="row";
+    element.style["justify-content"]="space-between";
+
     var rpcProxy = connector.getRpcProxy();
     var croppie = null;
     var quality = 1;
@@ -12,14 +18,33 @@ function cn_jmix_imagecropper_toolkit_ui_ImgCropServerComponent() {
     var img = document.createElement('img');
     img.setAttribute('class', 'cr-preview-img');
     img.setAttribute('src', '');
+
+    var previewImageWrapper=document.createElement('div');
+    previewImageWrapper.setAttribute("class","cr-preview-img-wrapper")
+    previewImageWrapper.appendChild(img);
+    preview.appendChild(previewImageWrapper);
+
     var sizeLabel = document.createElement('div');
     sizeLabel.setAttribute('class', 'cr-preview-label');
+    preview.appendChild(sizeLabel);
+
+
+    var originalImageWrapper=document.createElement('div');
+    originalImageWrapper.setAttribute("class","cr-original-image-wrapper");
+    var originalImage=document.createElement('div');
+    originalImage.setAttribute("class","cr-original-image");
+    originalImageWrapper.append(originalImage)
+
+    element.appendChild(originalImageWrapper);
+    element.appendChild(preview);
 
     connector.doDestroy = function () {
         if (croppie != null) {
             destroy();
         }
     };
+
+
     var me = this;
     /**
      * Crop result callback.
@@ -56,32 +81,6 @@ function cn_jmix_imagecropper_toolkit_ui_ImgCropServerComponent() {
         size = size.toFixed(2);
         return size + unitArr[index];
     };
-    /**
-     * Initialize custom element attribute.
-     * @param state
-     * @param ew
-     * @param eh
-     * @param pw
-     */
-    var setElementAttr = function (state, ew, eh, pw) {
-        // Add preview elements after setting the cropping component
-        // and set preview properties.
-        ew = element.offsetWidth;
-        eh = element.offsetHeight;
-        pw = ew * 0.46;
-        element.style.width = ew * 0.5 + 'px';
-        preview.style.height = pw + 'px';
-        preview.style.width = pw + 'px';
-        preview.style.maxHeight = pw + 'px';
-        preview.style.maxWidth = pw + 'px';
-        preview.appendChild(img);
-        element.parentElement.appendChild(preview);
-        element.parentElement.appendChild(sizeLabel);
-        sizeLabel.style.top = pw + 'px';
-        sizeLabel.style.left = preview.offsetLeft + 'px';
-        img.style.left = (pw - state.viewPort.width)/2 + 'px';
-        img.style.top = (pw - state.viewPort.height)/2 + 'px';
-    }
 
     connector.registerRpc({
         gerImageCropResult: function () {
@@ -108,20 +107,14 @@ function cn_jmix_imagecropper_toolkit_ui_ImgCropServerComponent() {
                 viewport: state.viewPort
             };
             var url = "data:image/jpeg;base64," + state.imageBase64;
-            croppie = new Croppie(element, opts);
-            setElementAttr(state);
-
-            element.addEventListener('update', function (ev) {
+            croppie = new Croppie(originalImage, opts);
+            originalImage.addEventListener('update', function (ev) {
                 updateF();
             });
             croppie.bind({
                 url: url
             })
         } else {
-            // Reset element attribute.
-            croppie.element.style.width = '50%';
-            img.style.left = (pw - state.viewPort.width)/2 + 'px';
-            img.style.top = (pw - state.viewPort.height)/2 + 'px';
             updateF();
         }
 
