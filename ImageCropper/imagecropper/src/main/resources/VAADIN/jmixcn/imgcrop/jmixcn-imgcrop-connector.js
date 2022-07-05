@@ -67,6 +67,8 @@ function cn_jmix_imagecropper_toolkit_ui_ImgCropServerComponent() {
                 sizeLabel.innerText = formatFilesize(size);
             });
         })
+        element.style.height="100%";
+        element.style.width="100%";
     };
 
     var formatFilesize=function (filesize) {
