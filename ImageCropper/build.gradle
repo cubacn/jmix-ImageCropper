@@ -3,7 +3,7 @@ buildscript {
         gradlePluginPortal()
     }
     dependencies {
-        classpath "io.jmix.gradle:jmix-gradle-plugin:1.2.0"
+        classpath 'io.jmix.gradle:jmix-gradle-plugin:1.3.0'
     }
 }
 
@@ -18,7 +18,7 @@ if (project.hasProperty('ghargs')) {
 
 ext.aliRepo = [
         snapshot: 'https://repo-snapshot.sikada.cn/',
-        release: 'https://repo.sikada.cn/',
+        release : 'https://repo.sikada.cn/',
         username:
                 project.hasProperty("skd.repo.username") ? project['skd.repo.username'] : '',
         password:
@@ -26,8 +26,8 @@ ext.aliRepo = [
 ]
 
 group = 'cn.jmix'
-if (!this.version||'unspecified'==this.version){
-    this.version='0.0.1-SNAPSHOT'
+if (!this.version || 'unspecified' == this.version) {
+    this.version = '0.0.1-SNAPSHOT'
 }
 
 subprojects {
@@ -43,7 +43,7 @@ subprojects {
     }
 
     jmix {
-        bomVersion = '1.2.2'
+        bomVersion = '1.3.0'
         projectId = 'imgcrop'
     }
 
@@ -66,7 +66,7 @@ subprojects {
     publishing {
         repositories {
             maven {
-                url = version.indexOf("snapshot")>-1? aliRepo.snapshot:aliRepo.release
+                url = version.indexOf("snapshot") > -1 ? aliRepo.snapshot : aliRepo.release
                 credentials {
                     username aliRepo.username
                     password aliRepo.password

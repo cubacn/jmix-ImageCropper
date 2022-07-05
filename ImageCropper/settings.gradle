@@ -5,6 +5,6 @@ include 'imagecropper-starter'
 
 rootProject.children.each { p1 ->
     p1.buildFileName = "${p1.name}.gradle"
-    p1.setName('jmixcn-'+p1.getName())
+    p1.setName('jmixcn-' + p1.getName())
 
 }
