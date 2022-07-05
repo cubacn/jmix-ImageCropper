@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
         with:
-          java-version: 1.8
+          java-version: 11
       - name: Publish package
         run: cd ImageCropper;./gradlew -Pversion=${{ github.event.release.tag_name }} -Pghargs='skd.repo.username=${{secrets.SKD_REPO_USERNAME}},skd.repo.password=${{secrets.SKD_REPO_PASSWORD}},skd.mrepo.username=${{secrets.SKD_MREPO_USERNAME}},skd.mrepo.password=${{secrets.SKD_MREPO_PASSWORD}}'   build publish
         env:
