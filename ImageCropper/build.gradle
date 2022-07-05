@@ -27,7 +27,7 @@ ext.aliRepo = [
 
 group = 'cn.jmix'
 if (!this.version || 'unspecified' == this.version) {
-    this.version = '0.0.1-SNAPSHOT'
+    this.version = '0.1.0-SNAPSHOT'
 }
 
 subprojects {
