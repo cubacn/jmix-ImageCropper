@@ -49,6 +49,7 @@ The add-on corresponding to the used platform version will be installed.
 |------------------|----------------|
 | 1.2.x            | 0.0.2          |
  | 1.3.x-1.4.x      | 0.1.1          |
+ | 1.5.x      | 0.2.x          |
 
 5. Click *Install* and apply the changes. The add-on will be installed to your project.
 
