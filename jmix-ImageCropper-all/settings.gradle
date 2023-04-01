@@ -1,4 +1,6 @@
 rootProject.name = 'jmix-ImageCropper-all'
 
-includeBuild '../ImageCropper'
+includeBuild ('../ImageCropper'){
+    setName(getName()+"-addon")
+}
 includeBuild '../demo'
